@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3 xwindow 
 modules-center = memory cpu battery filesystem temperature system-fan-speed network-traffic 
-modules-right = system-bluetooth-bluetoothctl pulseaudio xkeyboard date i3-lock powermenu
+modules-right = system-bluetooth-bluetoothctl pulseaudio xkeyboard date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -420,18 +420,27 @@ label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = poweroff
 menu-0-1-exec = menu-open-2
+menu-0-2 = lock
+menu-0-2-exec = menu-open-3
+
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
 menu-1-1 = reboot
-menu-1-1-exec = "sudo reboot -h now"
+menu-1-1-exec = "systemctl reboot"
 
-menu-2-0 = power off
-menu-2-0-exec = "sudo shutdown -h now"
+menu-2-0 = poweroff
+menu-2-0-exec = "systemctl poweroff"
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+menu-3-0 = lock
+menu-3-0-exec = "i3lock"
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
+
 
 [settings]
 screenchange-reload = true
